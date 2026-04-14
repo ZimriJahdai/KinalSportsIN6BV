@@ -18,6 +18,8 @@ export const useAuthStore = create(
 
                     const { data } = await loginRequest({ emailOrUsername, password })
 
+                    console.log(data)
+
                     set({
                         user: data.userDetails,
                         token: data.token,
