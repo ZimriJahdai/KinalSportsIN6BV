@@ -8,4 +8,14 @@ const axiosAuth = axios.create({
     }
 })
 
+axios.interceptors.request.use(config => {
+  config_axiosClient = "auth"
+    const token = localStorage.getState("token");
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;  
+})
+
+
 export { axiosAuth }
